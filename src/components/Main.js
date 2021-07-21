@@ -1,3 +1,16 @@
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import EventDetailsPage from "../screens/EventDetailsPage";
+import HomePage from "../screens/HomePage";
+
 export default function Main() {
-  return <h2>Main Page</h2>;
+  return (
+    <main className='p-6'>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/events/:id' component={EventDetailsPage} />
+        </Switch>
+      </BrowserRouter>
+    </main>
+  );
 }
