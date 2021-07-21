@@ -20,6 +20,7 @@ export default function HomePage() {
     {
       title: "C",
       description: "nbvcxwqsdfghjklmpoiuytreza",
+      id: 3,
       imgUrl:
         "https://media.foot-national.com/photo_article/613397/227961/1200-L-football-amateur-l-equite-sportive-en-danger.jpg",
     },
