@@ -7,8 +7,8 @@ export default function EventList({ eventList }) {
       <Grid
         container
         spacing={2}
-        direction='row'
-        justify='center'
+        direction="row"
+        justify="center"
         style={{ marginTop: "1em" }}
       >
         {eventList.map(({ id, title, description, imgUrl }) => (

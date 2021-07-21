@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 });
 
 export default function EventCard({ id, title, description, imgUrl }) {
-  const { card, classes, media } = useStyles();
+  const { card, media } = useStyles();
 
   return (
     <Card className={clsx(card)}>
