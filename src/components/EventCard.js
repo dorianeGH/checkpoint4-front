@@ -39,19 +39,19 @@ export default function EventCard({ id, title, description, imgUrl }) {
           <CardActionArea>
             <CardMedia className={media} image={imgUrl} title={title} />
             <CardContent>
-              <Typography gutterBottom variant='h5' component='h2'>
+              <Typography gutterBottom variant="h5" component="h2">
                 {title}
               </Typography>
-              <Typography variant='body2' color='textSecondary' component='p'>
+              <Typography variant="body2" color="textSecondary" component="p">
                 {description}
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size='small' color='primary'>
+            <Button size="small" color="primary">
               Share
             </Button>
-            <Button size='small' color='primary'>
+            <Button size="small" color="primary">
               Learn More
             </Button>
           </CardActions>

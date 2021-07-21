@@ -1,5 +1,6 @@
 import { useState } from "react";
 import EventList from "../components/EventList";
+import SearchInput from "../components/SearchInput";
 
 export default function HomePage() {
   const [eventList, setEventList] = useState([
@@ -41,7 +42,8 @@ export default function HomePage() {
   ]);
   return (
     <>
-      <h2>list of EventLists</h2>
+      <h2>Event Lists</h2>
+      <SearchInput />
       <EventList eventList={eventList} />
     </>
   );
