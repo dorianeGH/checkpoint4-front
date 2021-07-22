@@ -3,10 +3,11 @@ import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useCoverCardMediaStyles } from "@mui-treasury/styles/cardMedia/cover";
 import clsx from "clsx";
 import { useParams } from "react-router";
+import { EventContext } from "../contexts/eventContext";
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles(() => ({
     boxShadow: "none",
     position: "relative",
     margin: "auto",
-    maxWidth: 200,
+    maxWidth: 600,
     height: 300,
   },
   content: {
@@ -31,29 +32,18 @@ const useStyles = makeStyles(() => ({
     height: "100%",
     objectFit: "cover",
   },
-  genreList: {
-    listStyle: "none",
-    "& > li": {
-      color: "var(--text-primary)",
-    },
-  },
-  genreListItem: {
-    display: "inline-block",
-    marginRight: "1em",
-  },
 }));
-export default function EventInfo({ event_id, title, description, imgUrl }) {
+export default function EventInfo() {
+  const { eventList } = useContext(EventContext);
+  const { eventId, title, imgUrl, description } = eventList;
   const { id } = useParams();
   const styles = useStyles();
   const mediaStyles = useCoverCardMediaStyles({ bgPosition: "center" });
 
-  const [eventList, setEventDetails] = useState();
-  console.log(eventList);
-
-  // const test = eventList[0].title;
+  const currentEvent = eventList[0];
   return (
     <>
-      <h2>{title}</h2>
+      <h2>{currentEvent.title}</h2>
       <Grid
         container
         spacing={2}
@@ -61,22 +51,19 @@ export default function EventInfo({ event_id, title, description, imgUrl }) {
         justify='flex-start'
         alignItems='center'
       />
-      <Grid item xs={10} sm={6} md={6} lg={3} xl={2}>
-        <Card className={clsx(styles.card)}>
-          <CardMedia
-            className={clsx(styles.mediaStyle)}
-            classes={mediaStyles}
-            image={imgUrl}
-          />
-        </Card>
-      </Grid>
-      <Grid item xs={10} sm={6} md={6} lg={3} xl={2}>
-        <div className={styles.content}>
-          <h2>{title}</h2>
-          <h3>Details :</h3>
-          <div>{description}</div>
-        </div>
-      </Grid>
+
+      <Card className={clsx(styles.card)}>
+        <CardMedia
+          className={clsx(styles.mediaStyle)}
+          classes={mediaStyles}
+          image={currentEvent.imgUrl}
+        />
+      </Card>
+
+      <div className={styles.content}>
+        <h3>Details :</h3>
+        <div>{currentEvent.description}</div>
+      </div>
     </>
   );
 }
