@@ -24,11 +24,11 @@ export default function SearchInput() {
       <form
         className={root}
         noValidate
-        autoComplete='off'
+        autoComplete="off"
         onSubmit={handleSubmit}
       >
-        <TextField id='standard' label='search' />
-        <IconButton type='submit' className={iconButton} aria-label='search'>
+        <TextField id="standard" label="search" />
+        <IconButton type="submit" className={iconButton} aria-label="search">
           <SearchIcon />
         </IconButton>
       </form>
